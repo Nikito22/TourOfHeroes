@@ -1,7 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { HeroesServicio }  from './heroes.servicio';
 import { Heroe } from './heroe';
+import 'rxjs/add/operator/switchMap';
+
 
 @Component({
+    moduleId: module.id,
     selector: 'heroe-detalles',
     template: `
         <div *ngIf="heroe">
@@ -22,7 +29,18 @@ import { Heroe } from './heroe';
     `]
 })
 
-export class HeroeDetallesComponent {
+export class HeroeDetallesComponent implements OnInit {
     @Input()
     heroe: Heroe;
+
+    constructor (
+        private heroesServicio: HeroesServicio,
+        private route: ActivatedRoute,
+        private location: Location
+    ) {}
+    ngOnInit(): void {
+        this.route.params
+        .switchMap((params: Params) => this.heroesServicio.getHeroe(+params['id']))
+        .subscribe(heroe => this.heroe = heroe);
+    }
 }
