@@ -9,10 +9,13 @@ import { HeroesServicio } from './heroes.servicio';
 import { HeroeDetallesComponent } from './heroe-detalles.component';
 import { TablonComponent } from './tablon.component';
 
+import { TabMenuModule } from 'primeng/primeng';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    TabMenuModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/tablon', pathMatch: 'full' },
       { path: 'heroes', component: HeroesComponent },

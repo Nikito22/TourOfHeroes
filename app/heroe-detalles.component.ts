@@ -6,6 +6,7 @@ import { HeroesServicio } from './heroes.servicio';
 import { Heroe } from './heroe';
 import 'rxjs/add/operator/switchMap';
 
+import {TabMenuModule,MenuItem} from 'primeng/primeng';
 
 @Component({
     moduleId: module.id,

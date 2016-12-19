@@ -14,6 +14,6 @@ export class HeroesServicio {
             .then(() => this.getHeroes());
     }
     getHeroe(id: number): Promise<Heroe> {
-        return Promise.resolve(HEROES.find(heroe => heroe.id === id ))
+        return Promise.resolve(HEROES.find(heroe => heroe.id === id));
     }
 }
