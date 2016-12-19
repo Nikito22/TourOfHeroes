@@ -1,0 +1,10 @@
+<div *ngIf="mejoresHeroes">
+  <h3>Tablón de los Mejores Héroes</h3>
+  <div class="grid grid-pad">
+    <a *ngFor="let heroe of mejoresHeroes" [routerLink]="['/heroe', heroe.id]" class="col-1-4">
+      <div class="module heroe">
+        <h4>{{heroe.nombre}}</h4>
+      </div>
+    </a>
+  </div>
+</div>
